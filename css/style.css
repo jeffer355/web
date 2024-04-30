@@ -1,0 +1,161 @@
+/* Estilos generales */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background-color: #dad4b5; /* Color de fondo para toda la página */
+}
+
+/* Estilos para el encabezado */
+header {
+    
+    width: 100%;
+    height: 600px;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+  }
+  
+  nav {
+    width: 100%;
+    position: fixed;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.5);
+  }
+  
+  .nav1 {
+    background: rgba(0, 0, 0, 0.6);
+    height: 80px;
+    color: #fff;
+  }
+
+  .contenedor-nav {
+    display: flex;
+    margin: auto;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    height: inherit;
+    overflow: hidden;
+    position: relative;
+    
+  }
+  
+  nav .enlaces a {
+    display: inline-block;
+    padding: 5px 0;
+    margin-right: 17px;
+    font-size: 17px;
+    font-weight: 300;
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    color: inherit;
+  }
+  
+
+  .logo,
+  .logo img {
+    height: 80px;
+  }
+
+  nav .enlaces a:hover {
+    border-bottom: 3px solid #1498a4;
+    transition: 0.6s;
+  }
+  
+  .icono {
+    display: none;
+    font-size: 24px;
+    padding: 23.5px 20px;
+  }
+  .textos {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  /* Letra titulo Super's Pet */
+  .titulo-logo{
+    display: flex;
+  }
+  .titulo-logo h4 {
+    color: white;
+    font-weight: 100;
+    margin-right: 320px;
+    margin-top: 0; 
+  }
+  /* portada */
+  .container-portada {
+    width: 100%;
+    height: 400px;
+    margin-top: 100px;
+    background-image: url(https://i.postimg.cc/CKj5x05v/Brown-Modern-Cat-Pet-Photo-Collage-Desktop-Wallpaper-1.png);
+    background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
+    background-position: center; /* Centra la imagen */
+    animation: movimiento 10s;
+
+}
+/* Estilos para la sección (centrar contenido)*/
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+/* Estilos para los artículos */
+.contenido {
+    background-color: #333043;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    text-align: center;
+}
+
+.contenido h2 {
+    color: #adabab;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.contenido p {
+    color: #666;
+    font-size: 16px;
+}
+
+.contenido img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+/* Estilos para el pie de página */
+
+
+#pie {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #f2e8c6;
+    padding: 10px;
+}
+
+.centrado {
+    text-align: center;
+}
+
+.negrita {
+    font-weight: bold;
+}
+
