@@ -1,4 +1,4 @@
-// Efecto de Scroll en el Header
+// 1. Manejo del Scroll para el Header
 window.addEventListener('scroll', function() {
     const header = document.getElementById('main-header');
     if (window.scrollY > 50) {
@@ -8,18 +8,27 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Lógica del Menú Hamburguesa
+// 2. Lógica del Menú Hamburguesa para móviles
 const menuToggle = document.getElementById('mobile-menu');
 const navMenu = document.getElementById('nav-menu');
 
-menuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-});
+if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        
+        // Opcional: Pequeña animación visual del botón si quieres
+        const spans = menuToggle.querySelectorAll('span');
+        menuToggle.classList.toggle('is-open'); 
+    });
+}
 
-// Cerrar el menú al hacer clic en cualquier enlace (móviles)
+// 3. Cerrar el menú automáticamente al hacer clic en un enlace (Anclas)
 const navLinks = document.querySelectorAll('#nav-menu a');
+
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
+        if (navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+        }
     });
 });
