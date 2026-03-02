@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotizar Servicio | A3EL EIRL</title>
+    <link rel="stylesheet" href="sty.css">
+    <style>
+        /* Estilos específicos para la página de cotización */
+        .cotiza-page { 
+            padding: 160px 10% 80px 10%; 
+            display: flex; 
+            flex-direction: row; /* Asegura que los elementos estén uno al lado del otro */
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 50px; 
+            background: #fff;
+            min-height: 100vh;
+        }
+
+        /* Lado del Formulario */
+        .form-side { 
+            flex: 1.2; 
+            min-width: 320px; 
+        }
+        
+        .title-green { 
+            color: #005a44; 
+            font-size: clamp(2.5rem, 5vw, 3.8rem); 
+            line-height: 0.9; 
+            margin: 0; 
+            font-weight: 900; 
+        }
+        
+        .subtitle-gray { 
+            color: #999; 
+            font-size: 1.6rem; 
+            margin-bottom: 35px; 
+            font-weight: 300;
+        }
+
+        .form-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 15px; 
+            margin-top: 25px; 
+        }
+
+        .form-grid input, .form-grid select, .form-grid textarea {
+            padding: 14px; 
+            border: 1px solid #ddd; 
+            border-radius: 2px; 
+            width: 100%; 
+            font-size: 0.95rem;
+            font-family: inherit;
+        }
+
+        .full-width { grid-column: span 2; }
+
+        /* Botón estilo imagen: Verde Neón  */
+        .btn-cotizar-now { 
+            background-color: #00ffc8; 
+            color: #005a44; 
+            border: none; 
+            padding: 18px 45px; 
+            font-weight: 800; 
+            cursor: pointer; 
+            margin-top: 20px; 
+            text-transform: uppercase; 
+            transition: 0.3s;
+            letter-spacing: 1px;
+        }
+        .btn-cotizar-now:hover { background-color: #00d4a8; }
+
+        /* Lado de Información y Camión */
+        .info-side { 
+            flex: 0.8; 
+            min-width: 320px; 
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end; /* Alinea los números a la derecha */
+            text-align: right; 
+        }
+
+        .phone-list { 
+            font-size: 1.3rem; 
+            font-weight: 600; 
+            color: #005a44; 
+            list-style: none; 
+            margin-bottom: 40px; 
+        }
+        
+        .phone-list li { 
+            margin-bottom: 10px; 
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .truck-img { 
+            width: 100%; 
+            max-width: 550px; 
+            margin-top: 50px; 
+            filter: drop-shadow(10px 10px 20px rgba(0,0,0,0.1));
+        }
+
+        /* Responsivo para móviles */
+        @media (max-width: 992px) {
+            .cotiza-page { 
+                flex-direction: column; 
+                padding-top: 120px; 
+            }
+            .info-side { 
+                align-items: center; 
+                text-align: center; 
+                order: -1; /* Mueve la info arriba en móviles si lo deseas */
+            }
+            .phone-list li { justify-content: center; }
+            .form-grid { grid-template-columns: 1fr; }
+            .full-width { grid-column: span 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-header" class="scrolled"> 
+        <a href="index.html" class="logo">
+            <img src="img/logo.png" alt="Logo Color" style="opacity: 1; position: relative;">
+        </a>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="index.html#inicio" style="color: #1a1a1a;">Inicio</a></li>
+                <li><a href="index.html#nosotros" style="color: #1a1a1a;">Nosotros</a></li>
+                <li><a href="index.html#servicios" style="color: #1a1a1a;">Servicios</a></li>
+                <li><a href="index.html#contacto" style="color: #1a1a1a;">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="cotiza-page">
+        <div class="form-side">
+            <h1 class="title-green">HOLA,<br>COTIZA AQUÍ</h1>
+            <p class="subtitle-gray">DÉJANOS TUS DATOS.</p>
+            <p>Si estás interesado en este servicio, completa el siguiente formulario:</p>
+
+            <form action="https://formsubmit.co/inversionesa3el@gmail.com" method="POST" class="form-grid">
+                <input type="text" name="nombre" placeholder="Nombre de contacto" required>
+                <input type="text" name="apellidos" placeholder="Apellidos" required>
+                <input type="text" name="empresa" placeholder="Empresa">
+                <input type="text" name="ruc" placeholder="Ruc">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="tel" name="telefono" placeholder="Teléfono" required>
+                
+                <select name="servicio" class="full-width">
+                    <option value="unidades">UNIDADES: Conversión y Modificación</option>
+                    <option value="equipos">EQUIPOS: Mantenimiento y Seguridad</option>
+                    <option value="fabricacion">FABRICACIÓN: Tolvas y Carrocerías</option>
+                </select>
+
+                <textarea name="comentarios" class="full-width" placeholder="Comentarios" rows="4"></textarea>
+
+                <div class="full-width">
+                    <input type="checkbox" id="terms" required style="width: auto; margin-right: 10px;">
+                    <label for="terms" style="font-size: 0.8rem;">Acepto los Términos y condiciones.</label>
+                </div>
+
+                <button type="submit" class="btn-cotizar-now">COTIZAR AHORA</button>
+            </form>
+        </div>
+
+        <div class="info-side">
+            <ul class="phone-list">
+                <li>📞 +511 354 4462</li>
+                <li>📞 +511 354 4562</li>
+
+            </ul>
+            <img src="img/camion-cotiza.png" alt="Unidad A3EL" class="truck-img">
+        </div>
+    </main>
+
+        <footer class="footer-industrial">
+        <div class="footer-container">
+            <div class="footer-col branding">
+                <img src="img/logo.png" alt="A3EL Logo" class="footer-logo-grande">
+                <p class="propuesta-valor">
+                    Servicios realizados con materiales de primera calidad y en estricto cumplimiento de las normas y procedimientos técnicos exigidos.
+                </p>
+                <a href="cotizar.html" class="link-destacado">¿ACCESORIOS PARA CARROCERÍAS? &rarr;</a>
+            </div>
+
+            <div class="footer-col contacto-info">
+                <div class="telefonos-box">
+                    <p><strong>Atención Inmediata:</strong></p>
+                    <p>+51 955 173 338</p>
+                </div>
+                <div class="email-box">
+                    <p><strong>Correo Electrónico:</strong></p>
+                    <p>inversionesa3el@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="footer-col ubicacion">
+                <div class="address-box">
+                    <p><strong>Dirección:</strong></p>
+                    <p>Mz I Lt 7 Lotización Nieveria 7D,</p>
+                    <p>Lurigancho Chosica - Lima.</p>
+                </div>
+                <div class="social-icons">
+                    <a href="#"><img src="img/icon-fb.png" alt="Facebook"></a>
+                    <a href="#"><img src="img/icon-yt.png" alt="YouTube"></a>
+                    <a href="#"><img src="img/icon-maps.png" alt="Google Maps"></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; Copyright 2026 A3EL EIRL. Todos los derechos reservados.</p>
+            <p>A3EL INVERSIONES Y MULTISERVICIOS E.I.R.L.</p>
+        </div>
+    </footer>
+
+    <script src="scrp.js"></script>
+</body>
+</html>
