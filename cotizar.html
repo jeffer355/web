@@ -6,117 +6,154 @@
     <title>Cotizar Servicio | A3EL EIRL</title>
     <link rel="stylesheet" href="sty.css">
     <style>
-        /* Estilos específicos para la página de cotización */
+        /* Estilos alineados a la paleta corporativa de A3EL (Azul #003366 y Cian #00adef) */
         .cotiza-page { 
             padding: 160px 10% 80px 10%; 
             display: flex; 
-            flex-direction: row; /* Asegura que los elementos estén uno al lado del otro */
+            flex-direction: row; 
             justify-content: space-between;
             align-items: flex-start;
-            gap: 50px; 
-            background: #fff;
+            gap: 60px; 
+            background: linear-gradient(135deg, #f4f7f6 0%, #ffffff 100%);
             min-height: 100vh;
         }
 
-        /* Lado del Formulario */
         .form-side { 
             flex: 1.2; 
             min-width: 320px; 
+            background: #ffffff;
+            padding: 45px 50px;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.06); 
+            border-top: 5px solid #00adef; /* Acento Cian */
         }
         
-        .title-green { 
-            color: #005a44; 
-            font-size: clamp(2.5rem, 5vw, 3.8rem); 
-            line-height: 0.9; 
-            margin: 0; 
+        .title-corp { 
+            color: #003366; /* Azul Corporativo */
+            font-size: clamp(2.2rem, 4vw, 3.2rem); 
+            line-height: 1.1; 
+            margin: 0 0 8px 0; 
             font-weight: 900; 
+            letter-spacing: -1px;
         }
         
         .subtitle-gray { 
-            color: #999; 
-            font-size: 1.6rem; 
-            margin-bottom: 35px; 
-            font-weight: 300;
+            color: #777; 
+            font-size: 1.1rem; 
+            margin-bottom: 25px; 
+            font-weight: 400;
         }
 
         .form-grid { 
             display: grid; 
             grid-template-columns: 1fr 1fr; 
-            gap: 15px; 
+            gap: 20px; 
             margin-top: 25px; 
         }
 
         .form-grid input, .form-grid select, .form-grid textarea {
-            padding: 14px; 
-            border: 1px solid #ddd; 
-            border-radius: 2px; 
+            padding: 15px 16px; 
+            border: 1px solid #e0e0e0; 
+            border-radius: 8px; 
             width: 100%; 
             font-size: 0.95rem;
             font-family: inherit;
+            background-color: #fafafa;
+            transition: all 0.3s ease;
+        }
+
+        /* Focus en los inputs con color Cian */
+        .form-grid input:focus, .form-grid select:focus, .form-grid textarea:focus {
+            border-color: #00adef;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 4px rgba(0, 173, 239, 0.1);
+            outline: none;
         }
 
         .full-width { grid-column: span 2; }
 
-        /* Botón estilo imagen: Verde Neón  */
+        /* Botón estilo corporativo (Cian con hover a Azul profundo) */
         .btn-cotizar-now { 
-            background-color: #00ffc8; 
-            color: #005a44; 
+            background-color: #00adef; 
+            color: #ffffff; 
             border: none; 
             padding: 18px 45px; 
             font-weight: 800; 
+            border-radius: 8px;
             cursor: pointer; 
-            margin-top: 20px; 
+            margin-top: 15px; 
             text-transform: uppercase; 
-            transition: 0.3s;
+            transition: all 0.3s ease;
             letter-spacing: 1px;
+            box-shadow: 0 6px 20px rgba(0, 173, 239, 0.3);
         }
-        .btn-cotizar-now:hover { background-color: #00d4a8; }
+        
+        .btn-cotizar-now:hover { 
+            background-color: #003366; /* Cambia a azul corporativo */
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 51, 102, 0.3);
+        }
 
-        /* Lado de Información y Camión */
         .info-side { 
             flex: 0.8; 
             min-width: 320px; 
             display: flex;
             flex-direction: column;
-            align-items: flex-end; /* Alinea los números a la derecha */
+            align-items: flex-end; 
             text-align: right; 
+            padding-top: 20px;
         }
 
         .phone-list { 
-            font-size: 1.3rem; 
-            font-weight: 600; 
-            color: #005a44; 
             list-style: none; 
             margin-bottom: 40px; 
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: flex-end;
         }
         
+        /* Teléfonos con color corporativo */
         .phone-list li { 
-            margin-bottom: 10px; 
-            display: flex;
+            font-size: 1.2rem; 
+            font-weight: 700; 
+            color: #003366; /* Azul Corporativo */
+            background: #ffffff;
+            padding: 12px 25px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            display: inline-flex;
             align-items: center;
-            justify-content: flex-end;
-            gap: 10px;
+            gap: 12px;
+            border: 1px solid #f4f4f4;
+            border-left: 4px solid #00adef; /* Detalle cian */
         }
 
         .truck-img { 
             width: 100%; 
             max-width: 550px; 
-            margin-top: 50px; 
-            filter: drop-shadow(10px 10px 20px rgba(0,0,0,0.1));
+            margin-top: 20px; 
+            filter: drop-shadow(15px 15px 25px rgba(0,0,0,0.15));
+            transition: transform 0.4s ease;
         }
 
-        /* Responsivo para móviles */
+        .truck-img:hover {
+            transform: scale(1.02) rotate(-1deg);
+        }
+
         @media (max-width: 992px) {
             .cotiza-page { 
                 flex-direction: column; 
-                padding-top: 120px; 
+                padding-top: 130px; 
+                gap: 40px;
             }
+            .form-side { padding: 35px 25px; }
             .info-side { 
                 align-items: center; 
                 text-align: center; 
-                order: -1; /* Mueve la info arriba en móviles si lo deseas */
+                order: -1; 
             }
-            .phone-list li { justify-content: center; }
+            .phone-list { align-items: center; }
             .form-grid { grid-template-columns: 1fr; }
             .full-width { grid-column: span 1; }
         }
@@ -124,9 +161,10 @@
 </head>
 <body>
 
-    <header id="main-header" class="scrolled"> 
-        <a href="index.html" class="logo">
-            <img src="img/logo.png" alt="Logo Color" style="opacity: 1; position: relative;">
+        <header id="main-header">
+        <a href="#" class="logo">
+            <img src="https://i.postimg.cc/MGTHFKnK/logo.png" alt="Logo Blanco" class="logo-white">
+            <img src="https://i.postimg.cc/MGTHFKnK/logo.png" alt="Logo Color" class="logo-color">
         </a>
         <nav id="nav-menu">
             <ul>
@@ -140,32 +178,32 @@
 
     <main class="cotiza-page">
         <div class="form-side">
-            <h1 class="title-green">HOLA,<br>COTIZA AQUÍ</h1>
-            <p class="subtitle-gray">DÉJANOS TUS DATOS.</p>
-            <p>Si estás interesado en este servicio, completa el siguiente formulario:</p>
+            <h1 class="title-corp">HOLA,<br>COTIZA AQUÍ</h1>
+            <p class="subtitle-gray">Si estás interesado en un servicio, completa tus datos:</p>
 
             <form action="https://formsubmit.co/inversionesa3el@gmail.com" method="POST" class="form-grid">
                 <input type="text" name="nombre" placeholder="Nombre de contacto" required>
                 <input type="text" name="apellidos" placeholder="Apellidos" required>
                 <input type="text" name="empresa" placeholder="Empresa">
-                <input type="text" name="ruc" placeholder="Ruc">
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="tel" name="telefono" placeholder="Teléfono" required>
+                <input type="text" name="ruc" placeholder="RUC">
+                <input type="email" name="email" placeholder="Email corporativo o personal" required>
+                <input type="tel" name="telefono" placeholder="Teléfono / Celular" required>
                 
                 <select name="servicio" class="full-width">
+                    <option value="" disabled selected>Selecciona un servicio...</option>
                     <option value="unidades">UNIDADES: Conversión y Modificación</option>
                     <option value="equipos">EQUIPOS: Mantenimiento y Seguridad</option>
                     <option value="fabricacion">FABRICACIÓN: Tolvas y Carrocerías</option>
                 </select>
 
-                <textarea name="comentarios" class="full-width" placeholder="Comentarios" rows="4"></textarea>
+                <textarea name="comentarios" class="full-width" placeholder="Cuéntanos los detalles de tu requerimiento..." rows="4"></textarea>
 
-                <div class="full-width">
-                    <input type="checkbox" id="terms" required style="width: auto; margin-right: 10px;">
-                    <label for="terms" style="font-size: 0.8rem;">Acepto los Términos y condiciones.</label>
+                <div class="full-width" style="display: flex; align-items: center; gap: 8px;">
+                    <input type="checkbox" id="terms" required style="width: auto; margin: 0; cursor: pointer;">
+                    <label for="terms" style="font-size: 0.85rem; color: #555; cursor: pointer;">Acepto los Términos y condiciones.</label>
                 </div>
 
-                <button type="submit" class="btn-cotizar-now">COTIZAR AHORA</button>
+                <button type="submit" class="btn-cotizar-now">Enviar Cotización</button>
             </form>
         </div>
 
@@ -173,26 +211,25 @@
             <ul class="phone-list">
                 <li>📞 +511 354 4462</li>
                 <li>📞 +511 354 4562</li>
-
             </ul>
             <img src="https://png.pngtree.com/png-vector/20250429/ourmid/pngtree-bright-orange-dump-truck-parked-on-construction-site-png-image_16052413.png" alt="Unidad A3EL" class="truck-img">
         </div>
     </main>
 
-        <footer class="footer-industrial">
+    <footer class="footer-industrial">
         <div class="footer-container">
             <div class="footer-col branding">
-                <img src="img/logo.png" alt="A3EL Logo" class="footer-logo-grande">
+                <img src="https://i.postimg.cc/MGTHFKnK/logo.png" alt="A3EL Logo" class="footer-logo-grande" style="object-fit: contain; max-width: 100%; height: 90px;">
                 <p class="propuesta-valor">
                     Servicios realizados con materiales de primera calidad y en estricto cumplimiento de las normas y procedimientos técnicos exigidos.
                 </p>
-                <a href="cotizar.html" class="link-destacado">¿ACCESORIOS PARA CARROCERÍAS? &rarr;</a>
+                <a href="cotizar.html" class="link-destacado" style="color: #00adef; border-color: #00adef;">¿ACCESORIOS PARA CARROCERÍAS? &rarr;</a>
             </div>
 
             <div class="footer-col contacto-info">
                 <div class="telefonos-box">
                     <p><strong>Atención Inmediata:</strong></p>
-                    <p>+51 955 173 338</p>
+                    <p style="color: #00adef;">+51 955 173 338</p>
                 </div>
                 <div class="email-box">
                     <p><strong>Correo Electrónico:</strong></p>
@@ -207,9 +244,9 @@
                     <p>Lurigancho Chosica - Lima.</p>
                 </div>
                 <div class="social-icons">
-                    <a href="#"><img src="img/icon-fb.png" alt="Facebook"></a>
-                    <a href="#"><img src="img/icon-yt.png" alt="YouTube"></a>
-                    <a href="#"><img src="img/icon-maps.png" alt="Google Maps"></a>
+                    <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/500px-Facebook_Logo_%282019%29.png" alt="Facebook"></a>
+                    <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt="YouTube"></a>
+                    <a href="#"><img src="https://logosenvector.com/logo/img/google-maps-37240.png" alt="Google Maps"></a>
                 </div>
             </div>
         </div>

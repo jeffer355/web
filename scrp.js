@@ -16,7 +16,7 @@ if (menuToggle) {
     menuToggle.addEventListener('click', () => {
         navMenu.classList.toggle('active');
         
-        // Opcional: Pequeña animación visual del botón si quieres
+        // Animación visual del botón
         const spans = menuToggle.querySelectorAll('span');
         menuToggle.classList.toggle('is-open'); 
     });
@@ -32,3 +32,36 @@ navLinks.forEach(link => {
         }
     });
 });
+
+// ==========================================
+// 4. FUNCIONALIDAD LIGHTBOX (GALERÍA FOTOS)
+// ==========================================
+const lightbox = document.getElementById("lightbox");
+const modalImg = document.getElementById("img01");
+const imagenesGaleria = document.querySelectorAll(".foto-galeria");
+const spanClose = document.getElementsByClassName("lightbox-close")[0];
+
+if (lightbox && imagenesGaleria.length > 0) {
+    // Abrir foto al hacer clic
+    imagenesGaleria.forEach(img => {
+        img.addEventListener("click", function(e) {
+            e.preventDefault(); 
+            lightbox.style.display = "flex"; // Usamos flex para centrar
+            modalImg.src = this.src;
+        });
+    });
+
+    // Cerrar con la X
+    if(spanClose) {
+        spanClose.addEventListener("click", function() {
+            lightbox.style.display = "none";
+        });
+    }
+
+    // Cerrar haciendo clic en el fondo oscuro
+    lightbox.addEventListener("click", function(e) {
+        if (e.target !== modalImg) {
+            lightbox.style.display = "none";
+        }
+    });
+}
